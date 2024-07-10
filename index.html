@@ -2,28 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LeetCode Daily Redirect</title>
+    <meta http-equiv="refresh" content="0; url=https://leetcode-daily-redirect.vercel.app/">
+    <title>Redirecting...</title>
 </head>
 <body>
-    <script>
-        async function redirectToDailyProblem() {
-            try {
-                const response = await fetch('/.netlify/functions/leetcode-redirect');
-                if (response.redirected) {
-                    window.location.href = response.url;
-                } else if (response.status === 302) {
-                    const location = response.headers.get('Location');
-                    window.location.href = location;
-                } else {
-                    console.error('Failed to redirect:', response.status);
-                }
-            } catch (error) {
-                console.error('Error during fetch:', error);
-            }
-        }
-
-        redirectToDailyProblem();
-    </script>
+    <p>If you are not redirected automatically, follow this <a href="https://leetcode-daily-redirect.vercel.app/">link</a>.</p>
 </body>
 </html>
