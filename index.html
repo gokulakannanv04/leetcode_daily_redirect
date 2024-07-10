@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LeetCode Daily Redirect</title>
+</head>
+<body>
+    <script>
+        async function redirectToDailyProblem() {
+            try {
+                const response = await fetch('/.netlify/functions/leetcode-redirect');
+                if (response.redirected) {
+                    window.location.href = response.url;
+                } else {
+                    console.error('Failed to redirect:', response.status);
+                }
+            } catch (error) {
+                console.error('Error during fetch:', error);
+            }
+        }
+
+        redirectToDailyProblem();
+    </script>
+</body>
+</html>
