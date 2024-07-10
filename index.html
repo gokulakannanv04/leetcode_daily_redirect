@@ -9,7 +9,7 @@
     <script>
         async function redirectToDailyProblem() {
             try {
-                const response = await fetch('/.netlify/functions/leetcode-redirect');
+                const response = await fetch('/.netlify/edge-functions/leetcode-redirect');
                 if (response.status === 302) {
                     const location = response.headers.get('Location');
                     window.location.href = location;
