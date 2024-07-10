@@ -12,6 +12,9 @@
                 const response = await fetch('/.netlify/functions/leetcode-redirect');
                 if (response.redirected) {
                     window.location.href = response.url;
+                } else if (response.status === 302) {
+                    const location = response.headers.get('Location');
+                    window.location.href = location;
                 } else {
                     console.error('Failed to redirect:', response.status);
                 }

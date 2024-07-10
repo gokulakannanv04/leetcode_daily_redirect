@@ -5,15 +5,11 @@ exports.handler = async function(event, context) {
         const lc = new LeetCode();
         const daily = await lc.daily();
 
-        const now = Date.now();
-        const next = new Date(daily.date).getTime() + 24 * 60 * 60 * 1000;
-        const ttl = Math.floor((next - now) / 1000);
-
         return {
             statusCode: 302,
             headers: {
                 Location: `https://leetcode.com${daily.link}`,
-                "Cache-Control": `public, s-maxage=${ttl}`,
+                "Cache-Control": `public, s-maxage=86400`, // Cache for 24 hours
             },
         };
     } catch (error) {
